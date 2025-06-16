@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\Backend\ClassController;
+use App\Http\Controllers\Backend\SectionController;
 use App\Http\Controllers\ProfileController;
-use App\Models\Student;
+
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -26,6 +28,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::resource('students', StudentController::class);
+    Route::resource('classes',ClassController::class);
+    Route::resource('sections', SectionController::class);
+
 });
 
 require __DIR__.'/auth.php';
